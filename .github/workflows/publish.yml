@@ -23,12 +23,12 @@ jobs:
       - name: Archive Release[Connected Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
-          path: "./conected/*"
+          directory: "conected"
           filename: "GlowingOreOutlined-Connected_v${{ env.version }}.zip"
       - name: Archive Release[Unconnect Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
-          path: "./common/*"
+          directory: "common"
           filename: "GlowingOreOutlined_v${{ env.version }}.zip"
       - name: Upload Release
         uses: AButler/upload-release-assets@v2.0
