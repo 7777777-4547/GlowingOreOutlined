@@ -1,5 +1,5 @@
 <div align=center>
-  <img src="./pack.png" width="128">
+  <img src="./common/pack.png" width="128">
   <h2>GlowingOreOutlined</h2>
 
   Use Optifine format let ores have glowed outline.
