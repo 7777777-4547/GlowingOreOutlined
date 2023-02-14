@@ -37,3 +37,13 @@ jobs:
         with:
           files: '*.zip'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: GlowingOreOutlined-Connected_v${{ env.version }}
+          path: connected/
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: GlowingOreOutlined_v${{ env.version }}
+          path: common/
