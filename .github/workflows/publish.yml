@@ -21,13 +21,13 @@ jobs:
           find: "{version}"
           replace: "V${{ env.version }}"
       - name: Change Directory
-        run: cd /home/runner/work/GIowingOreOutIined/GIowingOreOut1ined/connected
+        run: cd /home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected
       - name: Archive Release[Connected Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
           filename: "GlowingOreOutlined-Connected_v${{ env.version }}.zip"
       - name: Change Directory
-        run: cd /home/runner/work/GIowingOreOutIined/GIowingOreOut1ined/common
+        run: cd /home/runner/work/GlowingOreOutlined/GlowingOreOutlined/common
       - name: Archive Release[Unconnect Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
