@@ -21,13 +21,13 @@ jobs:
           find: "{version}"
           replace: "V${{ env.version }}"
       - name: Change Directory
-        run: cd ./conected
+        run: cd $(find / -name "conected" -type d)
       - name: Archive Release[Connected Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
           filename: "GlowingOreOutlined-Connected_v${{ env.version }}.zip"
       - name: Change Directory
-        run: cd .././common
+        run: cd $(find / -name "common" -type d)
       - name: Archive Release[Unconnect Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
