@@ -20,15 +20,17 @@ jobs:
           include: "**pack.mcmeta"
           find: "{version}"
           replace: "V${{ env.version }}"
+      - name: Change Directory
+        run: cd ./conected
       - name: Archive Release[Connected Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
-          directory: "conected"
           filename: "GlowingOreOutlined-Connected_v${{ env.version }}.zip"
+      - name: Change Directory
+        run: cd .././common
       - name: Archive Release[Unconnect Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
-          directory: "common"
           filename: "GlowingOreOutlined_v${{ env.version }}.zip"
       - name: Upload Release
         uses: AButler/upload-release-assets@v2.0
