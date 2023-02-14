@@ -25,7 +25,7 @@ jobs:
       - name: Archive Release[Connected Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
-          filename: "GlowingOreOutlined-Connected_v${{ env.version }}.zip"
+          filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
       - name: Change Directory
         run: cd /home/runner/work/GlowingOreOutlined/GlowingOreOutlined/common
       - name: Archive Release[Unconnect Version]
@@ -37,13 +37,13 @@ jobs:
         with:
           files: '*.zip'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: GlowingOreOutlined-Connected_v${{ env.version }}
-          path: connected/
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: GlowingOreOutlined_v${{ env.version }}
-          path: common/
+#     - name: Upload build artifacts
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: GlowingOreOutlined-Connected_v${{ env.version }}
+#         path: connected/
+#     - name: Upload build artifacts
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: GlowingOreOutlined_v${{ env.version }}
+#         path: common/
