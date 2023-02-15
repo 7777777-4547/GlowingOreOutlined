@@ -29,6 +29,7 @@ jobs:
         uses: thedoctor0/zip-release@0.7.1
         with:
           directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/common"
+          path: "../"
           filename: "GlowingOreOutlined_v${{ env.version }}.zip"
       - name: Upload Release
         uses: AButler/upload-release-assets@v2.0
