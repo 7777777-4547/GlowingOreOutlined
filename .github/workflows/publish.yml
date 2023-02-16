@@ -33,8 +33,12 @@ jobs:
       - name: Upload Release
         uses: Kir-Antipov/mc-publish@v3.2
         with:
-          files-primary: connected/GlowingOreOutlined-CT_v${{ env.version }}.zip
-          files-secondary: common/GlowingOreOutlined_v${{ env.version }}.zip
+          files: connected/GlowingOreOutlined-CT_v${{ env.version }}.zip
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Release
+        uses: Kir-Antipov/mc-publish@v3.2
+        with:
+          files: common/GlowingOreOutlined_v${{ env.version }}.zip
           github-token: ${{ secrets.GITHUB_TOKEN }}
 #     - name: Upload build artifacts
 #       uses: actions/upload-artifact@v2
