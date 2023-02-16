@@ -20,20 +20,20 @@ jobs:
           include: "**pack.mcmeta"
           find: "{version}"
           replace: "V${{ env.version }}"
-#     - name: Archive Release[Connected Version]
-#       uses: thedoctor0/zip-release@0.7.1
-#       with:
-#         directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected"
-#         filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
+      - name: Archive Release[Connected Version]
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected"
+          filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
       - name: Archive Release[Unconnect Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
           directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/common"
           filename: "GlowingOreOutlined_v${{ env.version }}.zip"
       - name: Upload Release
-        uses: AButler/upload-release-assets@v2.0
+        uses: Kir-Antipov/mc-publish@v3.2
         with:
-          files: '*.zip'
+          files: *.zip
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 #     - name: Upload build artifacts
 #       uses: actions/upload-artifact@v2
