@@ -9,7 +9,10 @@ env:
 
 jobs:
   build:
-    runs-on: [ubuntu-latest,windows-2022]
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: checkout repository
