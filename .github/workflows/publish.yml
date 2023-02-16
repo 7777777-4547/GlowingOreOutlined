@@ -33,7 +33,7 @@ jobs:
       - name: Upload Release
         uses: Kir-Antipov/mc-publish@v3.2
         with:
-          files: "*.zip"
+          files: '*.zip'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 #     - name: Upload build artifacts
 #       uses: actions/upload-artifact@v2
