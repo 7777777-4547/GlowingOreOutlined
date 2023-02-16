@@ -9,10 +9,7 @@ env:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-2022]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: checkout repository
@@ -23,21 +20,21 @@ jobs:
           include: "**pack.mcmeta"
           find: "{version}"
           replace: "V${{ env.version }}"
-      - name: Archive Release[Connected Version]
-        uses: thedoctor0/zip-release@0.7.1
-        with:
-          directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected"
-          filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
+#     - name: Archive Release[Connected Version]
+#       uses: thedoctor0/zip-release@0.7.1
+#       with:
+#         directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected"
+#         filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
       - name: Archive Release[Unconnect Version]
         uses: thedoctor0/zip-release@0.7.1
         with:
           directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/common"
           filename: "GlowingOreOutlined_v${{ env.version }}.zip"
-      - name: Upload Release
-        uses: Kir-Antipov/mc-publish@v3.2
-        with:
-          files: connected/GlowingOreOutlined-CT_v${{ env.version }}.zip
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+#     - name: Upload Release
+#       uses: Kir-Antipov/mc-publish@v3.2
+#       with:
+#         files: connected/GlowingOreOutlined-CT_v${{ env.version }}.zip
+#         github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload Release
         uses: Kir-Antipov/mc-publish@v3.2
         with:
