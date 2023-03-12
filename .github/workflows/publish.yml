@@ -25,8 +25,7 @@ jobs:
         with:
           filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
           exclusions: "*.git* *.yml"
-      - name: Upload Release
-        uses: Kir-Antipov/mc-publish@v3.2
+      - uses: AButler/upload-release-assets@v2.0
         with:
           files: '*.zip'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
