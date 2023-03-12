@@ -1,4 +1,4 @@
-name: release
+name: build
 
 on:
   release:
@@ -20,13 +20,13 @@ jobs:
           include: "**pack.mcmeta"
           find: "{version}"
           replace: "V${{ env.version }}"
-      - name: Archive Release
+      - name: Archive build artifacts
         uses: thedoctor0/zip-release@master
         with:
           filename: "GlowingOreOutlined_v${{ env.version }}.zip"
           exclusions: "*.git* *.yml"
-      - name: Upload Release
-        uses: Kir-Antipov/mc-publish@v3.2
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
         with:
-          files: '*.zip'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: GlowingOreOutlined_v${{ env.version }}
+          path: GlowingOreOutlined_v${{ env.version }}.zip
