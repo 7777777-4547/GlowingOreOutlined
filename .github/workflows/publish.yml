@@ -21,8 +21,8 @@ jobs:
           find: "{version}"
           replace: "V${{ env.version }}"
       - name: Archive Release[Connected Version]
-       uses: thedoctor0/zip-release@0.7.1
-       with:
+        uses: thedoctor0/zip-release@0.7.1
+        with:
           directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected"
           filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
       - name: Archive Release[Unconnect Version]
