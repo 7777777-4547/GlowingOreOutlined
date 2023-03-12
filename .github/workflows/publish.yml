@@ -2,8 +2,8 @@ name: release-artifacts
 
 on:
   release:
-     types:
-       - published
+    types:
+      - published
 env:
   version: 1.0.0
 
@@ -33,5 +33,5 @@ jobs:
       - name: Upload Release
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: '*.zip'
+          files: "*.zip"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
