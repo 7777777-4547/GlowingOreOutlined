@@ -5,7 +5,7 @@ on:
      types:
        - published
 env:
-  version: 1.0.0-PRE
+  version: 1.0.0
 
 jobs:
   build:
@@ -20,17 +20,17 @@ jobs:
           include: "**pack.mcmeta"
           find: "{version}"
           replace: "V${{ env.version }}"
-     - name: Archive Release[Connected Version]
+      - name: Archive Release[Connected Version]
        uses: thedoctor0/zip-release@0.7.1
        with:
-         directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected"
-         filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
-     - name: Archive Release[Unconnect Version]
-       uses: thedoctor0/zip-release@0.7.1
-       with:
-         directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/common"
-         filename: "GlowingOreOutlined_v${{ env.version }}.zip"
-     - name: Upload Release
+          directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected"
+          filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
+      - name: Archive Release[Unconnect Version]
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/common"
+          filename: "GlowingOreOutlined_v${{ env.version }}.zip"
+      - name: Upload Release
         uses: AButler/upload-release-assets@v2.0
         with:
           files: '*.zip'
