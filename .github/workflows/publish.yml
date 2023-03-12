@@ -20,33 +20,18 @@ jobs:
           include: "**pack.mcmeta"
           find: "{version}"
           replace: "V${{ env.version }}"
-#     - name: Archive Release[Connected Version]
-#       uses: thedoctor0/zip-release@0.7.1
-#       with:
-#         directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected"
-#         filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
-#     - name: Archive Release[Unconnect Version]
-#       uses: thedoctor0/zip-release@0.7.1
-#       with:
-#         directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/common"
-#         filename: "GlowingOreOutlined_v${{ env.version }}.zip"
-#     - name: Upload Release
-#       uses: Kir-Antipov/mc-publish@v3.2
-#       with:
-#         files: connected/GlowingOreOutlined-CT_v${{ env.version }}.zip
-#         github-token: ${{ secrets.GITHUB_TOKEN }}
-#     - name: Upload Release
-#       uses: Kir-Antipov/mc-publish@v3.2
-#       with:
-#         files: common/GlowingOreOutlined_v${{ env.version }}.zip
-#         github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
+     - name: Archive Release[Connected Version]
+       uses: thedoctor0/zip-release@0.7.1
+       with:
+         directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/connected"
+         filename: "GlowingOreOutlined-CT_v${{ env.version }}.zip"
+     - name: Archive Release[Unconnect Version]
+       uses: thedoctor0/zip-release@0.7.1
+       with:
+         directory: "/home/runner/work/GlowingOreOutlined/GlowingOreOutlined/common"
+         filename: "GlowingOreOutlined_v${{ env.version }}.zip"
+     - name: Upload Release
+        uses: AButler/upload-release-assets@v2.0
         with:
-          name: GlowingOreOutlined-Connected_v${{ env.version }}
-          path: connected/
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: GlowingOreOutlined_v${{ env.version }}
-          path: common/
+          files: '*.zip'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
